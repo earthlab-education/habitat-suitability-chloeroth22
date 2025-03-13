@@ -65,7 +65,7 @@ I wanted to compare the extremes on both ends of the specturm, so I chose to loo
 Due to the uncertainty among global climate models, four different climate models were chosen to include scenarios that were warm and wet, warm and dry, cold and wet, and cold and dry. To select these I used the Climate Futures Toolbox Future Climate Scatter tool. 
 
 <img 
-  src="img/scatter.jpg" 
+  src="img/scatter.png" 
   alt="Climate Scatter" 
   style="max-width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;"> 
 
