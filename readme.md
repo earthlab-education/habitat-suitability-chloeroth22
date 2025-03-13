@@ -7,22 +7,22 @@ In this coding challenge my goal was to create a habitat suitability model for C
 I decided to do my study on Cylindropuntia fulgida, or Jumping Cholla. Jumping Cholla's are a type of cactus native to Arizona and Northern Mexico, and are populus in the Sonoran desert. They are known as Jumping Chollas because of how easy it is for the stems to detach when brushed, which makes it seem like the stems are nearly jumping off the cactus. This ease of detachment lets the cholla attach itself to desert animals and seeds be dispersted.
 
 <img 
-  src="img/USA_National_Forests_Map.jpg" 
+  src="img/Opuntia_fulgida_1_-_Desert_Botanical_Garden.jpg" 
   alt="Jumping Cholla" 
   style="max-width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;">
 
 <img 
-  src="img/USA_National_Forests_Map.jpg" 
+  src="img/Opuntia_fulgida_range_map.jpg" 
   alt="Jumping Cholla Distribution Map" 
   style="max-width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;">
 
 Since cholla's exist in already harsh and unfogiving enviornments, their population is stable. I wondered if the highest climate extremes would be able to push even a stable plant's suitability zones. Information on the optimal soil, topographic, and climate variables was difficult to assertain so I mixed information on suitabile variables for both jumping cholla's specifically and catus in general. 
 
 ##### Soil Variables
-The best soil condiditions for jumping cholla's are ones that are fertile, gravel-rich, water-permeable soil with a pH of between 6 and 7. Generally cactus will do well in soil with a pH of between 5 and 7, as they prefer slight acidity. Since the POLARIS data set does not include percent gravel in their data I collected the percent clay and determined if the clay percentage was under 55% then it would be more optimal and more likely to be a well drained soil. I also used the mean clay % and pH level at 5-15 cm below the ground to account for catis shallow roots.
+The best soil condiditions for jumping cholla's are ones that are fertile, gravel-rich, water-permeable soil with a pH of between 6 and 7. Generally cactus will do well in soil with a pH of between 5 and 7, as they prefer slight acidity. Since the POLARIS data set does not include percent gravel in their data I collected the percent clay and determined if the clay percentage was under 35% then it would be more optimal and more likely to be a well drained soil. I also used the mean clay % and pH level at 5-15 cm below the ground to account for catis shallow roots.
 
 <img 
-  src="img/USA_National_Forests_Map.jpg" 
+  src="img/HSG_USDA_overlap.png" 
   alt="Soil Triangle" 
   style="max-width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;">
 
@@ -38,21 +38,21 @@ The major limiting factors for jumping cholla are cold winters, dry summers, and
 To select sites I downloaded GBIF data and compared it to the Preservation Areas in the United States to determine which areas had the highest number of Jumping Cholla's recorded. 
 
 <img 
-  src="img/USA_National_Forests_Map.jpg" 
+  src="img/GBIF_oc.png" 
   alt="GBIF" 
   style="max-width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;">
 
 I was able to determine that Organ Pipe Cactus National Monument and Tuscon Mountain Park had the highest number of Jumping Cholla's recorded.
 
 <img 
-  src="img/USA_National_Forests_Map.jpg" 
+  src="img/orpi_site.png" 
   alt="ORPI Site" 
   style="max-width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;">
 
 Organ Pipe Cactus National Monument is located in the very Southern part of Arizona and shares a boarder with Mexico. It is 517 sq mi big, most of which is a wilderness area. It is the only place in the U.S. where senita and organ pipe cactus grow wild, and is home to many different cactus species. 
 
 <img 
-  src="img/USA_National_Forests_Map.jpg" 
+  src="img/tmp_site.png" 
   alt="TMP Site" 
   style="max-width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;">
 
@@ -65,7 +65,7 @@ I wanted to compare the extremes on both ends of the specturm, so I chose to loo
 Due to the uncertainty among global climate models, four different climate models were chosen to include scenarios that were warm and wet, warm and dry, cold and wet, and cold and dry. To select these I used the Climate Futures Toolbox Future Climate Scatter tool. 
 
 <img 
-  src="img/USA_National_Forests_Map.jpg" 
+  src="img/scatter.jpg" 
   alt="Climate Scatter" 
   style="max-width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;"> 
 
@@ -86,20 +86,20 @@ Wikipedia contributors. (n.d.). Organ Pipe Cactus National Monument. Wikipedia. 
 ### Data Access
 #### Soil data
 <img 
-  src="img/USA_National_Forests_Map.jpg" 
+  src="img/soil.png" 
   alt="POLARIS" 
   style="max-width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;">
 Using the POLARIS dataset I downloaded mean clay % and soil pH at a depth of 5-15 cm for each site. 
      
 #### Topographic data
 <img 
-  src="img/USA_National_Forests_Map.jpg" 
+  src="img/elevation.png" 
   alt="Elevation" 
   style="max-width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;">
 Using the SRTM dataset, downloaded through the earthaccess API, I downloaded elevation data for each site. 
 
 <img 
-  src="img/USA_National_Forests_Map.jpg" 
+  src="img/slope.png" 
   alt="Slope" 
   style="max-width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;">
 Next I calculated the slope of the SRTM elevation dataset using the xrspatial package. 
