@@ -34,7 +34,7 @@ For temperature I determined the ideal range to be between 15 - 38 ℃ and the t
 
 The major limiting factors for jumping cholla are cold winters, dry summers, and too much rainfall with low soil permability. 
 
-####Sites
+#### Sites
 To select sites I downloaded GBIF data and compared it to the Preservation Areas in the United States to determine which areas had the highest number of Jumping Cholla's recorded. 
 
 <img 
@@ -58,10 +58,10 @@ Organ Pipe Cactus National Monument is located in the very Southern part of Ariz
 
 Tucson Mountain Park is a 20,000 acre park located to the West of Tucson, Arizona, and shares its Northern boarder with Saguro National Park West. 
 
-####Time periods
+#### Time periods
 I wanted to compare the extremes on both ends of the specturm, so I chose to look at a historical time period of 1950-1979 and a late century time period of 2064-2096. 
 
-###Climate models
+### Climate models
 Due to the uncertainty among global climate models, four different climate models were chosen to include scenarios that were warm and wet, warm and dry, cold and wet, and cold and dry. To select these I used the Climate Futures Toolbox Future Climate Scatter tool. 
 
 <img 
