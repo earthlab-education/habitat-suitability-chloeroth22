@@ -70,9 +70,13 @@ Due to the uncertainty among global climate models, four different climate model
   style="max-width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;"> 
 
 The climate models I decided to use were:
+
 Cold and wet: MRI CGCM3
+
 Hot and dry: IPSL CM5A MR
+
 Hot and wet: CanESM2
+
 Cold and dry: inmcm4
 
 ##### Citations
