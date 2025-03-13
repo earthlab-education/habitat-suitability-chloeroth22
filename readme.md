@@ -24,13 +24,6 @@ For temperature I determined the ideal range to be between 15 - 38 ℃ and the t
 
 The major limiting factors for jumping cholla are cold winters, dry summers, and too much rainfall with low soil permability. 
 
-##### Citations
-Helmy, O. (2021). Carnegiea gigantea, saguaro. Fire Effects Information System. U.S. Department of Agriculture, Forest Service, Rocky Mountain Research Station. https://www.fs.usda.gov/database/feis/plants/cactus/cargig/all.pdf
-Iowa State University Extension and Outreach. (n.d.). Gardening on slopes and hillsides. Iowa State University Extension and Outreach. https://yardandgarden.extension.iastate.edu/how-to/gardening-slopes-and-hillsides
-PictureThis. (n.d.). How to grow and care for jumping cholla (Cylindropuntia fulgida). PictureThis. https://www.picturethisai.com/care/Cylindropuntia_fulgida.html
-Wikipedia contributors. (n.d.). Cylindropuntia fulgida. Wikipedia. https://en.wikipedia.org/wiki/Cylindropuntia_fulgida
-Wikipedia contributors. (n.d.). Organ Pipe Cactus National Monument. Wikipedia. https://en.wikipedia.org/wiki/Organ_Pipe_Cactus_National_Monument
-
 ####Sites
 To select sites I downloaded GBIF data and compared it to the Preservation Areas in the United States to determine which areas had the highest number of Jumping Cholla's recorded. 
 
@@ -52,53 +45,38 @@ I wanted to compare the extremes on both ends of the specturm, so I chose to loo
 ###Climate models
 Due to the uncertainty among global climate models, four different climate models were chosen to include scenarios that were warm and wet, warm and dry, cold and wet, and cold and dry. To select these I used the Climate Futures Toolbox Future Climate Scatter tool. 
 
-If your question requires it, you can also choose to include multiple climate variables, such as temperature and precipitation, and/or multiple emissions scenarios, such as RCP4.5 and RCP8.5.
+Insert Climate Scatter 
 
+The climate models I decided to use were:
+Cold and wet: MRI CGCM3
+Hot and dry: IPSL CM5A MR
+Hot and wet: CanESM2
+Cold and dry: inmcm4
 
-Try It
-Choose at least 4 climate models that cover the range of possible future climate variability at your sites. How did you choose?
-LIST THE CLIMATE MODELS YOU SELECTED HERE AND CITE THE CLIMATE TOOLBOX
+##### Citations
+Climate Toolbox. (n.d.). Future climate scatter. Climate Toolbox. https://climatetoolbox.org/tool/Future-Climate-Scatter
+Helmy, O. (2021). Carnegiea gigantea, saguaro. Fire Effects Information System. U.S. Department of Agriculture, Forest Service, Rocky Mountain Research Station. https://www.fs.usda.gov/database/feis/plants/cactus/cargig/all.pdf
+Iowa State University Extension and Outreach. (n.d.). Gardening on slopes and hillsides. Iowa State University Extension and Outreach. https://yardandgarden.extension.iastate.edu/how-to/gardening-slopes-and-hillsides
+PictureThis. (n.d.). How to grow and care for jumping cholla (Cylindropuntia fulgida). PictureThis. https://www.picturethisai.com/care/Cylindropuntia_fulgida.html
+Wikipedia contributors. (n.d.). Cylindropuntia fulgida. Wikipedia. https://en.wikipedia.org/wiki/Cylindropuntia_fulgida
+Wikipedia contributors. (n.d.). Organ Pipe Cactus National Monument. Wikipedia. https://en.wikipedia.org/wiki/Organ_Pipe_Cactus_National_Monument
 
-STEP 2: DATA ACCESS
-Soil data
-The POLARIS dataset is a convenient way to uniformly access a variety of soil parameters such as pH and percent clay in the US. It is available for a range of depths (in cm) and split into 1x1 degree tiles.
-
-Try It
-Write a function with a numpy-style docstring that will download POLARIS data for a particular location, soil parameter, and soil depth. Your function should account for the situation where your site boundary crosses over multiple tiles, and merge the necessary data together.
-
-Then, use loops to download and organize the rasters you will need to complete this section. Include soil parameters that will help you to answer your scientific question. We recommend using a soil depth that best corresponds with the rooting depth of your species.
-
-
-# Download soil data
+### Data Access
+#### Soil data
+Insert POLARIS
+Using the POLARIS dataset I downloaded mean clay % and soil pH at a depth of 5-15 cm for each site. 
      
-Topographic data
-One way to access reliable elevation data is from the SRTM dataset, available through the earthaccess API.
+#### Topographic data
+Insert Elevation
+Using the SRTM dataset, downloaded through the earthaccess API, I downloaded elevation data for each site. 
 
-Try It
-Write a function with a numpy-style docstring that will download SRTM elevation data for a particular location and calculate any additional topographic variables you need such as slope or aspect.
-
-Then, use loops to download and organize the rasters you will need to complete this section. Include topographic parameters that will help you to answer your scientific question.
-
-Warning
-
-Be careful when computing the slope from elevation that the units of elevation match the projection units (e.g. meters and meters, not meters and degrees). You will need to project the SRTM data to complete this calculation correctly.
-
-
-# Download soil data
+Insert Slope
+Next I calculated the slope of the SRTM elevation dataset using the xrspatial package. 
      
-Climate model data
-You can use MACAv2 data for historical and future climate data. Be sure to compare at least two 30-year time periods (e.g. historical vs. 10 years in the future) for at least four of the CMIP models. Overall, you should be downloading at least 8 climate rasters for each of your sites, for a total of 16. You will need to use loops and/or functions to do this cleanly!.
+#### Climate model data
+I downloaded MACAv2 data for historical data (1950-1979) and higher emmisions RCP8.5 future climate data (2064-2096), using the four climate models I selected using the Climate Futures Toolbox Future Climate Scatter tool. I downloaded the max temperature data for each one of my sites, models, and time periods. 
 
-Try It
-Write a function with a numpy-style docstring that will download MACAv2 data for a particular climate model, emissions scenario, spatial domain, and time frame. Then, use loops to download and organize the 16+ rasters you will need to complete this section. The MACAv2 dataset is accessible from their Thredds server. Include an arrangement of sites, models, emissions scenarios, and time periods that will help you to answer your scientific question.
-
-
-# Download climate data
-     
-Reflect and Respond
-Make sure to include a description of the climate data and how you selected your models. Include a citation of the MACAv2 data
-
-YOUR CLIMATE DATA DESCRIPTION AND CITATIONS HERE
+Northwest Knowledge Network. (n.d.). REACCH climate CMIP5 MACAV2 catalog. Northwest Knowledge Network. https://www.reacchpna.org/thredds/reacch_climate_CMIP5_macav2_catalog2.html
 
 STEP 3: HARMONIZE DATA
 Try It
@@ -110,8 +88,6 @@ If you are reprojecting data as you need to here, the order of operations is imp
 
 1. Crop the data, leaving a buffer around the final boundary
 2. Reproject to match the template grid (this will also crop any leftovers off the image)
-
-# Download soil data
      
 STEP 4: DEVELOP A FUZZY LOGIC MODEL
 A fuzzy logic model is one that is built on expert knowledge rather than training data. You may wish to use the scikit-fuzzy library, which includes many utilities for building this sort of model. In particular, it contains a number of membership functions which can convert your data into values from 0 to 1 using information such as, for example, the maximum, minimum, and optimal values for soil pH.
